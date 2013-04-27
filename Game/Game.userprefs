@@ -1,6 +1,10 @@
 ﻿<Properties>
   <MonoDevelop.Ide.Workspace ActiveConfiguration="Debug" />
-  <MonoDevelop.Ide.Workbench>
+  <MonoDevelop.Ide.Workbench ActiveDocument="Assets\_Raf\Scripts\Lightning.js">
+    <Files>
+      <File FileName="Assets\_Raf\Scripts\LightningShade.js" Line="8" Column="29" />
+      <File FileName="Assets\_Raf\Scripts\Lightning.js" Line="1" Column="1" />
+    </Files>
     <Pads>
       <Pad Id="ProjectPad">
         <State expanded="True">
@@ -8,7 +12,7 @@
             <Node name="Assets" expanded="True">
               <Node name="_Raf" expanded="True">
                 <Node name="Scripts" expanded="True">
-                  <Node name="Test.js" selected="True" />
+                  <Node name="Lightning.js" selected="True" />
                 </Node>
               </Node>
             </Node>
