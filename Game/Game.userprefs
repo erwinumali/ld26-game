@@ -1,8 +1,8 @@
 ﻿<Properties>
   <MonoDevelop.Ide.Workspace ActiveConfiguration="Debug" />
-  <MonoDevelop.Ide.Workbench ActiveDocument="Assets\Standard Assets\Scripts\General Scripts\ActivateTrigger.cs">
+  <MonoDevelop.Ide.Workbench ActiveDocument="Assets\_Raf\Scripts\Lightning.js">
     <Files>
-      <File FileName="Assets\Standard Assets\Scripts\General Scripts\ActivateTrigger.cs" Line="44" Column="30" />
+      <File FileName="Assets\_Raf\Scripts\Lightning.js" Line="44" Column="50" />
     </Files>
   </MonoDevelop.Ide.Workbench>
   <MonoDevelop.Ide.DebuggingService.Breakpoints>
