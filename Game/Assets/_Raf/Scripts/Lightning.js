@@ -1,56 +1,44 @@
 //Lightning.js
-var meshDetail : int = 5;
-var random : float = 1;
-var smoothness : float = 30;
-var lightningThickness : float = 1.5;
-
-
-var lightningColor : Color = Color.cyan; 
-
-var endPoint : Transform;
-var rayCastEndPoint = false;
-var oneShot = false;
-
-var noHitLightningDistance : float = 200;
-var oneShotFadeSpeed : float = .1;
-var oneShotLightFadeSpeed : float = .2;
 
 private var detail : int = 20;
-private var startDestroy = false;
-private var firstPosSet = false;
-public var end2:Transform;
+private var c_render : LineRenderer;
+private var dist:float;
 
-var start:Transform;
-var modColor = lightningColor;
-var dist:float;
+public var meshDetail : int = 5;
+public var smoothness : float = 30;
+public var lightningThickness : float = 1.5;
+public var lightningColor : Color; 
+public var endPoint : Transform;
+public var startPoint:Transform;
+private var c_lightningShade:LightningShade;
+
 
 function Start(){
-	
-	renderer.material.SetColor("_TintColor", modColor);
+	c_render= GetComponent(LineRenderer);
+	c_lightningShade=transform.parent.gameObject.GetComponent(LightningShade);
+	c_render.material.SetColor("_TintColor", lightningColor);
+	print(transform.parent.GetComponent("LightningShade"));
 }
 function Update () {
 
-	dist = Vector3.Distance(transform.position, endPoint.position);
-	detail = dist * meshDetail / 40;
+	dist = Vector3.Distance(startPoint.position, endPoint.position);
+	detail = 1;
 	
-
-	var GlowWidthRandom = Random.Range(9, 13);
-	
-	var render : LineRenderer = GetComponent(LineRenderer);
-	
-	render.SetWidth(lightningThickness, lightningThickness);
-	render.SetPosition(0,start.position);
+	lightningThickness=c_lightningShade.GetShade();
+	c_render.SetWidth(lightningThickness, lightningThickness);
+	c_render.SetPosition(0,startPoint.position);
 	
 	if(detail > 0){		
-		render.SetVertexCount(detail + 1);
-		renderer.material.mainTextureOffset.x = Random.value;
-		renderer.material.mainTextureScale.x = dist/smoothness;
+		c_render.SetVertexCount(detail + 1);
+		c_render.material.mainTextureOffset.x = Random.value;
+		c_render.material.mainTextureScale.x = dist/smoothness;
 		positionDistance = dist / detail;
 	}
 	for(i = 1; i < detail + 1; i ++){
 		if(i == detail){
-			render.SetPosition(i, end2.position);
+			c_render.SetPosition(i, endPoint.position);
 		}
 	}
-		
+}
+public function ASDF(){
 }
