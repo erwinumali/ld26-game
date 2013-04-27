@@ -12,11 +12,16 @@ public class Movement : MonoBehaviour {
             moveDirection = new Vector3(Input.GetAxis("Horizontal"), 0, Input.GetAxis("Vertical"));
             moveDirection = transform.TransformDirection(moveDirection);
             moveDirection *= speed;
-            if (Input.GetButton("Jump"))
-                moveDirection.y = jumpSpeed;
-            
+            if (moveDirection != Vector3.zero){
+                Quaternion newRotation = Quaternion.LookRotation(moveDirection);
+                transform.rotation = Quaternion.Slerp(transform.rotation, newRotation, Time.deltaTime * 8);
+            }
+            //if (Input.GetButton("Jump"))
+            //    moveDirection.y = jumpSpeed;
+
         }
         moveDirection.y -= gravity * Time.deltaTime;
+        //transform.LookAt(moveDirection);
         controller.Move(moveDirection * Time.deltaTime);
     }
 }

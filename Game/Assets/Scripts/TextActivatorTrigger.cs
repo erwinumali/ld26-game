@@ -1,9 +1,10 @@
 using UnityEngine;
 using System.Collections;
 
-public class ActivatorTrigger : MonoBehaviour {
+public class TextActivatorTrigger : MonoBehaviour {
 	public GameObject source;
 	public GameObject activatorObject;
+	public string message;
 	public bool repeatTrigger;
 
 	void Start() {
@@ -15,7 +16,7 @@ public class ActivatorTrigger : MonoBehaviour {
 	void doActivateTrigger() {
 		Activator act = source.transform.GetComponent<Activator>();
 		if (act != null) {
-			act.Activate();
+			act.Activate(message);
 		}
 	}
 
