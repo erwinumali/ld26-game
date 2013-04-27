@@ -12,7 +12,7 @@ public class AudioCollision : MonoBehaviour {
 		player = GameObject.FindWithTag("Player");
 		c_transform = this.transform;
 		audio =  this.GetComponent<AudioSource>();
-		origVol = audio.maxDistance;
+		origVol = audio.minDistance;
 	}
 	
 	// Update is called once per frame
@@ -28,9 +28,9 @@ public class AudioCollision : MonoBehaviour {
 			float cDist = Vector3.Distance(origin, hit.point);
 
 			//audio.maxDistance = (cDist / pDist) * origVol;
-			audio.maxDistance = cDist;
+			audio.minDistance = cDist;
 		} else {
-			audio.maxDistance = origVol;
+			audio.minDistance = origVol;
 		}
 	}
 }

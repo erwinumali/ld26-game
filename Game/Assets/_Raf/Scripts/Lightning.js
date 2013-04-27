@@ -17,7 +17,7 @@ function Start(){
 	c_render= GetComponent(LineRenderer);
 	c_lightningShade=transform.parent.gameObject.GetComponent(LightningShade);
 	c_render.material.SetColor("_TintColor", lightningColor);
-	print(transform.parent.GetComponent("LightningShade"));
+	//print(transform.parent.GetComponent("LightningShade"));
 }
 function Update () {
 
