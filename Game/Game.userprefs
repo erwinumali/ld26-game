@@ -1,25 +1,14 @@
 ﻿<Properties>
   <MonoDevelop.Ide.Workspace ActiveConfiguration="Debug" />
-  <MonoDevelop.Ide.Workbench ActiveDocument="Assets\_Raf\Scripts\Lightning.js">
-    <Files>
-      <File FileName="Assets\_Raf\Scripts\Test.cs" Line="5" Column="31" />
-      <File FileName="Assets\_Raf\Scripts\Lightning.js" Line="42" Column="2" />
-    </Files>
+  <MonoDevelop.Ide.Workbench>
     <Pads>
       <Pad Id="ProjectPad">
         <State expanded="True">
-          <Node name="Assembly-CSharp" expanded="True">
-            <Node name="Assets" expanded="True">
-              <Node name="_Raf" expanded="True">
-                <Node name="Scripts" expanded="True" />
-              </Node>
-            </Node>
-          </Node>
           <Node name="Assembly-UnityScript" expanded="True">
             <Node name="Assets" expanded="True">
               <Node name="_Raf" expanded="True">
                 <Node name="Scripts" expanded="True">
-                  <Node name="Lightning.js" selected="True" />
+                  <Node name="Test.js" selected="True" />
                 </Node>
               </Node>
             </Node>

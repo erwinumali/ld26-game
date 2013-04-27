@@ -10,7 +10,7 @@ function Update(){
 	dist=Vector3.Distance(c_transform.position,player.position);
 	if(dist<=5){
 		shade=(5-dist)*.02;
-	}
+	}else shade=0;
 }
 function GetShade(){
 	return shade;
