@@ -12,6 +12,11 @@ public class LockCursor : MonoBehaviour {
 	
     private bool wasLocked = false;
 	
+	void Start() {
+		// inits game by locking cursor
+		Screen.lockCursor = true;	
+	}
+	
     void Update() {
         if (Input.GetKeyDown("escape"))
             Screen.lockCursor = false;
