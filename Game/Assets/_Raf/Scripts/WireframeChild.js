@@ -15,23 +15,23 @@ function Start(){
 	c_render= GetComponent(LineRenderer);
 	c_wireframeParent=transform.parent.gameObject.GetComponent(WireframeParent);
 	c_render.material.SetColor("_TintColor", c_wireframeParent.GetColor());
+	dist=c_wireframeParent.GetMaxDistance();
+	c_render.SetPosition(0,startPoint.position);
+	c_render.SetVertexCount(2);
+	c_render.SetPosition(1, endPoint.position);
+	c_render.material.mainTextureOffset.x = Random.value;
+	c_render.material.mainTextureScale.x = dist/c_wireframeParent.GetSmoothness();
 }
 function Update () {
 
-	dist = Vector3.Distance(startPoint.position, endPoint.position);
 	var hit:RaycastHit;
-	if(Physics.Raycast(transform.position, player.position-transform.position, hit,dist+1)){
+	if(Physics.Raycast(transform.position, player.position-transform.position, hit,dist)){
 		//Debug.DrawRay(transform.position, player.position-transform.position, Color.green);
 		if(hit.transform.tag=="Player")lightningThickness=c_wireframeParent.GetShade();
 		else  lightningThickness=0;
 	}else  lightningThickness=0;
 	c_render.SetWidth(lightningThickness, lightningThickness);
-	c_render.SetPosition(0,startPoint.position);
-	
-	c_render.SetVertexCount(2);
-	c_render.material.mainTextureOffset.x = Random.value;
-	c_render.material.mainTextureScale.x = dist/c_wireframeParent.GetSmoothness();
 	positionDistance = dist;
-	c_render.SetPosition(1, endPoint.position);
+	
 
 }

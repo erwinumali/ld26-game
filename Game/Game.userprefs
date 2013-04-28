@@ -1,49 +1,9 @@
 ﻿<Properties>
   <MonoDevelop.Ide.Workspace ActiveConfiguration="Debug" />
-<<<<<<< HEAD
-  <MonoDevelop.Ide.Workbench ActiveDocument="Assets\_Raf\Scripts\WireframeChild.js">
+  <MonoDevelop.Ide.Workbench ActiveDocument="Assets\_Raf\Scripts\WireframeParent.js">
     <Files>
       <File FileName="Assets\_Raf\Scripts\WireframeParent.js" Line="1" Column="1" />
-      <File FileName="Assets\_Raf\Scripts\WireframeChild.js" Line="26" Column="30" />
-      <File FileName="Assets\Scripts\AudioCollision.cs" Line="1" Column="1" />
-=======
-  <MonoDevelop.Ide.Workbench ActiveDocument="Assets\_Erwin\Scripts\CarMove.cs">
-    <Files>
-      <File FileName="Assets\_Erwin\Scripts\CarMove.cs" Line="9" Column="23" />
-      <File FileName="Assets\_Erwin\Scripts\LockCursor.cs" Line="12" Column="2" />
->>>>>>> 73ea685d72450c8cce30dfb5a996ef3dd4d94097
     </Files>
-    <Pads>
-      <Pad Id="ProjectPad">
-        <State expanded="True">
-<<<<<<< HEAD
-=======
-          <Node name="Assembly-CSharp" expanded="True">
-            <Node name="Assets" expanded="True">
-              <Node name="_Erwin" expanded="True">
-                <Node name="Scripts" expanded="True">
-                  <Node name="CarMove.cs" selected="True" />
-                </Node>
-              </Node>
-              <Node name="Scripts" expanded="True" />
-            </Node>
-          </Node>
->>>>>>> 73ea685d72450c8cce30dfb5a996ef3dd4d94097
-          <Node name="Assembly-UnityScript" expanded="True">
-            <Node name="Assets" expanded="True">
-              <Node name="_Raf" expanded="True">
-                <Node name="Scripts" expanded="True">
-                  <Node name="WireframeChild.js" selected="True" />
-                </Node>
-              </Node>
-            </Node>
-          </Node>
-        </State>
-      </Pad>
-      <Pad Id="ClassPad">
-        <State expanded="True" selected="True" />
-      </Pad>
-    </Pads>
   </MonoDevelop.Ide.Workbench>
   <MonoDevelop.Ide.DebuggingService.Breakpoints>
     <BreakpointStore />

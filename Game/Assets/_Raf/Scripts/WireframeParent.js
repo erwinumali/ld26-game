@@ -12,12 +12,11 @@ function Start(){
 	c_transform=transform;
 	player=GameObject.FindGameObjectWithTag("Player").transform;
 }
-function Update(){
+
+function GetShade(){
 	distance=Vector3.Distance(c_transform.position,player.position);
 	if(distance<=maxDistance) shade=(maxDistance-distance)*thickness;
-	else shade=0;
-}
-function GetShade(){
+	else shade=0;	
 	return shade;
 }
 
@@ -27,4 +26,8 @@ function GetColor(){
 
 function GetSmoothness(){
 	return smoothness;
+}
+
+function GetMaxDistance(){
+	return maxDistance;
 }
