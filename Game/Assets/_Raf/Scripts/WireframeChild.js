@@ -28,15 +28,20 @@ function Update () {
 	var hit:RaycastHit;
 	if(Physics.Raycast(transform.position, player.position-transform.position, hit,dist)){
 		//Debug.DrawRay(transform.position, player.position-transform.position, Color.green);
-		if(hit.transform.tag=="Player")lightningThickness=c_wireframeParent.GetShade();
-		else  lightningThickness=0;
-	}else  lightningThickness=0;
-	c_render.SetWidth(lightningThickness, lightningThickness);
-	if(timer>=.3){
-		c_render.material.mainTextureOffset.x = Random.value;
-		timer=0;
+		if(hit.transform.tag=="Player"){
+			if(c_render.enabled!=true) c_render.enabled=true;
+			lightningThickness=c_wireframeParent.GetShade();
+			c_render.SetWidth(lightningThickness, lightningThickness);
+			c_render.material.mainTextureOffset.x = Random.value;
+			//positionDistance = dist;
+		}else {
+			if(c_render.enabled!=false) c_render.enabled=false;
+			lightningThickness=0;
+		}
+	}else{
+		if(c_render.enabled!=false) c_render.enabled=false;
+		lightningThickness=0;
 	}
-	positionDistance = dist;
 	
 
 }
