@@ -19,11 +19,12 @@ function Start(){
 	c_render.SetPosition(0,startPoint.position);
 	c_render.SetVertexCount(2);
 	c_render.SetPosition(1, endPoint.position);
-	c_render.material.mainTextureOffset.x = Random.value;
+	
 	c_render.material.mainTextureScale.x = dist/c_wireframeParent.GetSmoothness();
 }
+private var timer:float=0;
 function Update () {
-
+	timer+=Time.deltaTime;
 	var hit:RaycastHit;
 	if(Physics.Raycast(transform.position, player.position-transform.position, hit,dist)){
 		//Debug.DrawRay(transform.position, player.position-transform.position, Color.green);
@@ -31,6 +32,10 @@ function Update () {
 		else  lightningThickness=0;
 	}else  lightningThickness=0;
 	c_render.SetWidth(lightningThickness, lightningThickness);
+	if(timer>=.3){
+		c_render.material.mainTextureOffset.x = Random.value;
+		timer=0;
+	}
 	positionDistance = dist;
 	
 
