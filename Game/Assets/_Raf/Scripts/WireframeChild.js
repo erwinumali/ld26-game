@@ -20,11 +20,11 @@ function Update () {
 
 	dist = Vector3.Distance(startPoint.position, endPoint.position);
 	var hit:RaycastHit;
-	if(Physics.Raycast(transform.position, player.position-transform.position, hit)){
-		Debug.DrawRay(transform.position, player.position-transform.position, Color.green);
-		if(hit.transform.IsChildOf(transform.parent)) lightningThickness=0;
-		else lightningThickness=c_wireframeParent.GetShade();
-	}
+	if(Physics.Raycast(transform.position, player.position-transform.position, hit,dist+1)){
+		//Debug.DrawRay(transform.position, player.position-transform.position, Color.green);
+		if(hit.transform.tag=="Player")lightningThickness=c_wireframeParent.GetShade();
+		else  lightningThickness=0;
+	}else  lightningThickness=0;
 	c_render.SetWidth(lightningThickness, lightningThickness);
 	c_render.SetPosition(0,startPoint.position);
 	
