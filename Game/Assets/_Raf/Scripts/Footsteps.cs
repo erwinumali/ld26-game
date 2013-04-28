@@ -27,23 +27,21 @@ public class Footsteps : MonoBehaviour {
 				audioSource.Play();
 				grounded=false;
 			}
-		}else if(Input.GetKey(KeyCode.W) || Input.GetKey(KeyCode.A) || Input.GetKey(KeyCode.S) || Input.GetKey(KeyCode.D)){
-			if(grounded!=true){
-				audioSource.clip = audioClip[1];
-				grounded=true;	
-			}
-			// don't play if step sfx is still playing
-			if(!audioSource.isPlaying) audioSource.Play();
 		}else{
-			// if from jumping state to ground without inputs stop sound
 			if(grounded==false){
-				// you can input landing sfx here
-				// ex: audioSource.clip = audioClip[2];
-				// add another element in audio clip
-				audioSource.Stop();	
+					audioSource.clip = audioClip[2];
+					if(!audioSource.isPlaying) audioSource.Play();
+					grounded=true;
 			}
+			else if(Input.GetKey(KeyCode.W) || Input.GetKey(KeyCode.A) || Input.GetKey(KeyCode.S) || Input.GetKey(KeyCode.D)){
+//				if(grounded!=true){
+					audioSource.clip = audioClip[1];
+					grounded=true;
+//				}
+				if(!audioSource.isPlaying) audioSource.Play();
+			}
+			
 		}
-		
     }
 	
 	public void SetFoot(AudioClip clip){
