@@ -8,6 +8,7 @@ public var startPoint:Transform;
 
 private var tempVector:Vector3;
 private var player:Transform;
+private var c_transform:Transform;
 
 
 function Start(){
@@ -21,12 +22,13 @@ function Start(){
 	c_render.SetPosition(1, endPoint.position);
 	
 	c_render.material.mainTextureScale.x = dist/c_wireframeParent.GetSmoothness();
+	c_transform=transform;
 }
 private var timer:float=0;
 function Update () {
 	timer+=Time.deltaTime;
 	var hit:RaycastHit;
-	if(Physics.Raycast(transform.position, player.position-transform.position, hit,dist)){
+	if(Physics.Raycast(c_transform.position, player.position-c_transform.position, hit,dist)){
 		//Debug.DrawRay(transform.position, player.position-transform.position, Color.green);
 		if(hit.transform.tag=="Player"){
 			if(c_render.enabled!=true) c_render.enabled=true;
