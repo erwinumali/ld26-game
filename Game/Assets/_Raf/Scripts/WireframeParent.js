@@ -11,6 +11,7 @@ public var smoothness:float=1;
 function Start(){
 	c_transform=transform;
 	player=GameObject.FindGameObjectWithTag("Player").transform;
+	shade=.05;
 }
 
 function GetShade(){
@@ -18,6 +19,7 @@ function GetShade(){
 	if(distance<=maxDistance) shade=(maxDistance-distance)*thickness;
 	else shade=0;	
 	return shade;
+
 }
 
 function GetColor(){
