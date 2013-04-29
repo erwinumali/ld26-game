@@ -15,13 +15,13 @@ function Start(){
 	player=GameObject.FindGameObjectWithTag("Player").transform;
 	c_render= GetComponent(LineRenderer);
 	c_wireframeParent=transform.parent.gameObject.GetComponent(WireframeParent);
-	c_render.material.SetColor("_TintColor", c_wireframeParent.GetColor());
+	c_render.sharedMaterial.SetColor("_TintColor", c_wireframeParent.GetColor());
 	dist=c_wireframeParent.GetMaxDistance();
 	c_render.SetPosition(0,startPoint.position);
 	c_render.SetVertexCount(2);
 	c_render.SetPosition(1, endPoint.position);
 	
-	c_render.material.mainTextureScale.x = dist/c_wireframeParent.GetSmoothness();
+	c_render.sharedMaterial.mainTextureScale.x = dist/c_wireframeParent.GetSmoothness();
 	c_transform=transform;
 }
 private var timer:float=0;
@@ -34,16 +34,14 @@ function Update () {
 			if(c_render.enabled!=true) c_render.enabled=true;
 			lightningThickness=c_wireframeParent.GetShade();
 			c_render.SetWidth(lightningThickness, lightningThickness);
-			c_render.material.mainTextureOffset.x = Random.value;
+			c_render.sharedMaterial.mainTextureOffset.x = Random.value;
 			//positionDistance = dist;
 		}else {
-			if(c_render.enabled!=false) c_render.enabled=false;
+			c_render.enabled=false;
 			lightningThickness=0;
 		}
 	}else{
 		if(c_render.enabled!=false) c_render.enabled=false;
 		lightningThickness=0;
 	}
-	
-
 }

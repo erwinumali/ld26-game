@@ -34,11 +34,11 @@ public class Footsteps : MonoBehaviour {
 					grounded=true;
 			}
 			else if(Input.GetKey(KeyCode.W) || Input.GetKey(KeyCode.A) || Input.GetKey(KeyCode.S) || Input.GetKey(KeyCode.D)){
-//				if(grounded!=true){
-					audioSource.clip = audioClip[1];
-					grounded=true;
-//				}
-				if(!audioSource.isPlaying) audioSource.Play();
+				
+				if(!audioSource.isPlaying){
+					if(audioSource.clip!=audioClip[1]) audioSource.clip = audioClip[1];
+					audioSource.Play();
+				}
 			}
 			
 		}
