@@ -37,13 +37,11 @@ function Update () {
 			c_render.material.mainTextureOffset.x = Random.value;
 			//positionDistance = dist;
 		}else {
-			if(c_render.enabled!=false) c_render.enabled=false;
+			c_render.enabled=false;
 			lightningThickness=0;
 		}
 	}else{
 		if(c_render.enabled!=false) c_render.enabled=false;
 		lightningThickness=0;
 	}
-	
-
 }
