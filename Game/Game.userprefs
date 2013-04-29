@@ -1,13 +1,6 @@
 ﻿<Properties>
   <MonoDevelop.Ide.Workspace ActiveConfiguration="Debug" />
-  <MonoDevelop.Ide.Workbench ActiveDocument="Assets\_Raf\Scripts\OverrideChild.js">
-    <Files>
-      <File FileName="Assets\_Raf\Scripts\WireframeChild.js" Line="1" Column="1" />
-      <File FileName="Assets\_Raf\Scripts\WireframeParent.js" Line="19" Column="28" />
-      <File FileName="Assets\_Raf\Scripts\OverrideChild.js" Line="44" Column="27" />
-      <File FileName="Assets\_Raf\Scripts\TextHandler.cs" Line="14" Column="64" />
-      <File FileName="Assets\_Raf\Scripts\OverrideTime.js" Line="6" Column="15" />
-    </Files>
+  <MonoDevelop.Ide.Workbench>
     <Pads>
       <Pad Id="ProjectPad">
         <State expanded="True">
@@ -22,7 +15,7 @@
             <Node name="Assets" expanded="True">
               <Node name="_Raf" expanded="True">
                 <Node name="Scripts" expanded="True">
-                  <Node name="OverrideChild.js" selected="True" />
+                  <Node name="WireframeChild.js" selected="True" />
                 </Node>
               </Node>
             </Node>
