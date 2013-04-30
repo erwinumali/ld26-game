@@ -1,6 +1,10 @@
 ﻿<Properties>
   <MonoDevelop.Ide.Workspace ActiveConfiguration="Debug" />
-  <MonoDevelop.Ide.Workbench>
+  <MonoDevelop.Ide.Workbench ActiveDocument="Assets\_Raf\Scripts\WireframeChild.js">
+    <Files>
+      <File FileName="Assets\_Raf\Scripts\WireframeChild.js" Line="18" Column="1" />
+      <File FileName="Assets\_Raf\Scripts\CopyRender.js" Line="4" Column="81" />
+    </Files>
     <Pads>
       <Pad Id="ProjectPad">
         <State expanded="True">
