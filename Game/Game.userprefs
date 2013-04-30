@@ -11,15 +11,18 @@
               </Node>
             </Node>
           </Node>
+          <Node name="Assembly-CSharp-firstpass" expanded="True">
+            <Node name="Assets" expanded="True">
+              <Node name="Standard Assets" expanded="True">
+                <Node name="Scripts" expanded="True" />
+              </Node>
+            </Node>
+          </Node>
           <Node name="Assembly-UnityScript" expanded="True">
             <Node name="Assets" expanded="True">
               <Node name="_Raf" expanded="True">
                 <Node name="Scripts" expanded="True">
-<<<<<<< HEAD
                   <Node name="WireframeParent.js" selected="True" />
-=======
-                  <Node name="WireframeChild.js" selected="True" />
->>>>>>> 9d4d54c41ef9e9058e1c196dd770d966b456562c
                 </Node>
               </Node>
             </Node>
