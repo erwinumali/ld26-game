@@ -26,6 +26,9 @@ public class FlashActivator : Activator {
 				newRange += 100.0f * Time.deltaTime;
 				light.range = newRange;
 			}
+			else {
+				Application.LoadLevel (0);
+			}
 		}
 	}
 }

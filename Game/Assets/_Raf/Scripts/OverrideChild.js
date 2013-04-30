@@ -23,14 +23,14 @@ function Start(){
 	player=GameObject.FindGameObjectWithTag("Player").transform;
 	c_render= GetComponent(LineRenderer);
 	c_wireframeParent=transform.parent.gameObject.GetComponent(WireframeParent);
-	c_render.material.SetColor("_TintColor", c_wireframeParent.GetColor());
+	c_render.sharedMaterial.SetColor("_TintColor", c_wireframeParent.GetColor());
 	dist=10;
 	endPoint=transform.FindChild("EndPoint");
 	startPoint=transform.FindChild("StartPoint");
 	c_render.SetPosition(0,startPoint.position);
 	c_render.SetVertexCount(2);
 	c_render.SetPosition(1, endPoint.position);
-	c_render.material.mainTextureScale.x = dist/c_wireframeParent.GetSmoothness();
+	c_render.sharedMaterial.mainTextureScale.x = dist/c_wireframeParent.GetSmoothness();
 	c_transform=transform;
 	distToPlayer=Vector3.Distance(c_transform.position, player.position);
 	timeScript=GameObject.FindGameObjectWithTag("Player").GetComponent(OverrideTime);
@@ -51,7 +51,7 @@ function Update(){
 			}
 		}
 		c_render.SetWidth(lightningThickness, lightningThickness);
-		c_render.material.mainTextureOffset.x = Random.value;
+		c_render.sharedMaterial.mainTextureOffset.x = Random.value;
 		if(done){
 			transform.parent.GetComponent(WireframeParent).enabled=true;
 			GetComponent(WireframeChild).enabled=true;

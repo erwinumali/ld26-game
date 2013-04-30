@@ -23,25 +23,33 @@ function Start(){
 	
 	c_render.sharedMaterial.mainTextureScale.x = dist/c_wireframeParent.GetSmoothness();
 	c_transform=transform;
+	c_render.SetWidth(0.0f, 0.0f);
+	
+	//c_render.enabled = false;
+	
+	
 }
 private var timer:float=0;
 function Update () {
+
+	if (!c_render.isVisible) return;
+
 	timer+=Time.deltaTime;
 	var hit:RaycastHit;
 	if(Physics.Raycast(c_transform.position, player.position-c_transform.position, hit,dist)){
 		//Debug.DrawRay(transform.position, player.position-transform.position, Color.green);
 		if(hit.transform.tag=="Player"){
-			if(c_render.enabled!=true) c_render.enabled=true;
+			//if(c_render.enabled!=true) c_render.enabled=true;
 			lightningThickness=c_wireframeParent.GetShade();
 			c_render.SetWidth(lightningThickness, lightningThickness);
 			c_render.sharedMaterial.mainTextureOffset.x = Random.value;
 			//positionDistance = dist;
 		}else {
-			c_render.enabled=false;
+			//c_render.enabled=false;
 			lightningThickness=0;
 		}
 	}else{
-		if(c_render.enabled!=false) c_render.enabled=false;
+		//if(c_render.enabled!=false) c_render.enabled=false;
 		lightningThickness=0;
 	}
 }
