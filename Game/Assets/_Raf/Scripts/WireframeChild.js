@@ -32,14 +32,7 @@ function Start(){
 private var timer:float=0;
 function Update () {
 
-<<<<<<< HEAD
 	if (!c_render.isVisible) return;
-=======
-	if (!c_render.isVisible)
-	{
-		return;
-	}
->>>>>>> 87fdce0c116f99647a7ff9aee638315e0c5f4edc
 
 	timer+=Time.deltaTime;
 	var hit:RaycastHit;
