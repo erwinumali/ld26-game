@@ -16,7 +16,7 @@ public class WireFrameChild : MonoBehaviour {
 		c_lineRenderer.sharedMaterial.SetColor("_TintColor", color);
 		c_lineRenderer.SetVertexCount(15);
 		corner=new Vector3[15];
-		tempVector3.x=-1;
+		/*tempVector3.x=-1;
 		tempVector3.y=-1;
 		tempVector3.z=1;
 		corner[0]=c_parentTransform.position+Vector3.Scale(c_parentTransform.localScale / 2, tempVector3);
@@ -48,6 +48,97 @@ public class WireFrameChild : MonoBehaviour {
 		corner[13]=c_parentTransform.position+Vector3.Scale(c_parentTransform.localScale / 2, tempVector3);
 		tempVector3.x=-1;
 		corner[14]=c_parentTransform.position+Vector3.Scale(c_parentTransform.localScale / 2, tempVector3);
+		*/
+		
+		// - + -
+		tempVector3.x=-c_parentTransform.localScale.x/2;
+		tempVector3.y=c_parentTransform.localScale.y/2;
+		tempVector3.z=-c_parentTransform.localScale.z/2;
+		corner[0]=tempVector3;
+		
+		// - + +
+		//tempVector3.x=-1;
+		//tempVector3.y=1;
+		tempVector3.z=c_parentTransform.localScale.z/2-.0001f;
+		corner[1]=tempVector3;
+		
+		// - + +
+		//tempVector3.x=-1;
+		//tempVector3.y=1;
+		tempVector3.z=c_parentTransform.localScale.z/2;
+		corner[2]=tempVector3;
+		
+		// - - +
+		//tempVector3.x=-1;
+		tempVector3.y=-c_parentTransform.localScale.y/2+.0001f;
+		//tempVector3.z=1;
+		corner[3]=tempVector3;
+		
+		// - - +
+		//tempVector3.x=-1;
+		tempVector3.y=-c_parentTransform.localScale.y/2;
+		//tempVector3.z=1;
+		corner[4]=tempVector3;
+		
+		// - - +
+		//tempVector3.x=-1;
+		//tempVector3.y=-1;
+		tempVector3.z=-c_parentTransform.localScale.z/2+.0001f;
+		corner[5]=tempVector3;
+		
+		// - - -
+		//tempVector3.x=-1;
+		//tempVector3.y=-1;
+		tempVector3.z=-c_parentTransform.localScale.z/2;
+		corner[6]=tempVector3;
+		
+		// - + -
+		//tempVector3.x=-1;
+		tempVector3.y=c_parentTransform.localScale.y/2-.0001f;
+		//tempVector3.z=-1;
+		corner[7]=tempVector3;
+		
+		// - + -
+		//tempVector3.x=-1;
+		tempVector3.y=c_parentTransform.localScale.y/2;
+		//tempVector3.z=-1;
+		corner[8]=tempVector3;
+		
+		// + + -
+		tempVector3.x=c_parentTransform.localScale.x/2-.0001f;
+		//tempVector3.y=1;
+		//tempVector3.z=-1;
+		corner[9]=tempVector3;
+		
+		// + + -
+		tempVector3.x=c_parentTransform.localScale.x/2;
+		//tempVector3.y=1;
+		//tempVector3.z=-1;
+		corner[10]=tempVector3;
+		
+		// + - -
+		//tempVector3.x=1;
+		tempVector3.y=-c_parentTransform.localScale.y/2+.0001f;
+		//tempVector3.z=-1;
+		corner[11]=tempVector3;
+		
+		// + - -
+		//tempVector3.x=1;
+		tempVector3.y=-c_parentTransform.localScale.y/2;
+		//tempVector3.z=-1;
+		corner[12]=tempVector3;
+		
+		// - - -
+		tempVector3.x=-c_parentTransform.localScale.x/2+.0001f;
+		//tempVector3.y=-1;
+		//tempVector3.z=-1;
+		corner[13]=tempVector3;
+		
+		// - - -
+		tempVector3.x=-c_parentTransform.localScale.x/2;
+		//tempVector3.y=-1;
+		//tempVector3.z=-1;
+		corner[14]=tempVector3;
 		for(int i=0 ; i<15 ; i++) c_lineRenderer.SetPosition(i, corner[i]);
 		
 	}
