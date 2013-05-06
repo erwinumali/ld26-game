@@ -16,6 +16,7 @@ public class WireFrameChild : MonoBehaviour {
 		c_lineRenderer.sharedMaterial.SetColor("_TintColor", color);
 		c_lineRenderer.SetVertexCount(15);
 		corner=new Vector3[15];
+<<<<<<< HEAD
 		/*tempVector3.x=-1;
 		tempVector3.y=-1;
 		tempVector3.z=1;
@@ -138,9 +139,42 @@ public class WireFrameChild : MonoBehaviour {
 		tempVector3.x=-c_parentTransform.localScale.x/2;
 		//tempVector3.y=-1;
 		//tempVector3.z=-1;
+=======
+
+		tempVector3.x=-0.5f;
+		tempVector3.y=0.5f;
+		tempVector3.z=-0.5f;
+		corner[0]=tempVector3;
+		tempVector3.z=0.4999f;
+		corner[1]=tempVector3;
+		tempVector3.z=0.5f;
+		corner[2]=tempVector3;
+		tempVector3.y=-0.4999f;
+		corner[3]=tempVector3;
+		tempVector3.y=-0.5f;
+		corner[4]=tempVector3;
+		tempVector3.z=-0.4999f;
+		corner[5]=tempVector3;
+		tempVector3.z=-0.5f;
+		corner[6]=tempVector3;
+		tempVector3.y=0.4999f;
+		corner[7]=tempVector3;
+		tempVector3.y=0.5f;
+		corner[8]=tempVector3;
+		tempVector3.x=0.4999f;
+		corner[9]=tempVector3;
+		tempVector3.x=0.5f;
+		corner[10]=tempVector3;
+		tempVector3.y=-0.4999f;
+		corner[11]=tempVector3;
+		tempVector3.y=-0.5f;
+		corner[12]=tempVector3;
+		tempVector3.x=-0.4999f;
+		corner[13]=tempVector3;
+		tempVector3.x=-0.5f;
+>>>>>>> 4ff3941ac2f2bda4ad31ea15a642c0b624ce4961
 		corner[14]=tempVector3;
 		for(int i=0 ; i<15 ; i++) c_lineRenderer.SetPosition(i, corner[i]);
-		
 	}
 	
 	void Update () {

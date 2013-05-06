@@ -18,12 +18,27 @@ public class WireFrameParent : MonoBehaviour {
 	
 	// Update is called once per frame
 	void Update () {
-		distance=Vector3.Distance(transform.position,c_playerTransform.position);
-		if(distance<=maxDistance){
-			for(int i=0 ; i<wireFrameChild.Length ; i++){
-				wireFrameChild[i].SetTextureScale(roughness*Random.value*10);
-				wireFrameChild[i].SetThickness(thickness*((maxDistance-distance)/maxDistance));
-			}
-		}
+		RaycastHit hit;
+		//if(Physics.Raycast(c_transform.position, c_playerTransform.position-c_transform.position,out hit,100.0f)){
+			//if(hit.transform.tag=="Player"){
+				distance=Vector3.Distance(transform.position,c_playerTransform.position);
+				if(distance<=maxDistance){
+					for(int i=0 ; i<wireFrameChild.Length ; i++){
+						wireFrameChild[i].SetTextureScale(roughness*Random.value*10);
+						wireFrameChild[i].SetThickness(thickness*((maxDistance-distance)/maxDistance));
+					}
+				}
+			//}else{
+				//for(int i=0 ; i<wireFrameChild.Length ; i++){
+					//wireFrameChild[i].SetTextureScale(roughness*Random.value*10);
+					//wireFrameChild[i].SetThickness(0);
+				//}
+			//}
+		//}else{
+			//for(int i=0 ; i<wireFrameChild.Length ; i++){
+				//wireFrameChild[i].SetTextureScale(roughness*Random.value*10);
+				//wireFrameChild[i].SetThickness(0);
+			//}
+		//}
 	}
 }
