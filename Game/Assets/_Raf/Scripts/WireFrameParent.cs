@@ -28,4 +28,8 @@ public class WireFrameParent : MonoBehaviour {
 			}
 		}
 	}
+	
+	public float GetMaxDistance(){
+		return maxDistance;	
+	}
 }
