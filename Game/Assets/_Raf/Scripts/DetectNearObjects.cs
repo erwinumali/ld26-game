@@ -4,7 +4,7 @@ using System.Collections;
 public class DetectNearObjects : MonoBehaviour {
 	private Transform c_transform;
 	private Collider[] colliders;
-	public float radius=0;
+	public float vision=0;
 	private int mask;
 	void Start () {
 		c_transform=transform;
@@ -12,20 +12,17 @@ public class DetectNearObjects : MonoBehaviour {
 	}
 	
 	void Update () {
-		colliders=Physics.OverlapSphere(c_transform.position,radius*1.25f,mask);
+		colliders=Physics.OverlapSphere(c_transform.position,vision*1.25f,mask);
 		foreach(Collider col in colliders){
 			float distance=Vector3.Distance(c_transform.position, col.transform.position);
-			LineRenderer[] lineRenderer=col.GetComponentsInChildren<LineRenderer>();
-			WireFrameChild[] wireFrameChild=col.GetComponentsInChildren<WireFrameChild>();
-			WireFrameParent wireFrameParent=col.GetComponent<WireFrameParent>();
-			if(distance<=radius){
-				foreach(LineRenderer lr in lineRenderer)lr.enabled=true;
-				foreach(WireFrameChild wfc in wireFrameChild) wfc.enabled=true;
-				wireFrameParent.enabled=true;
+			LineRenderer lineRenderer=col.GetComponent<LineRenderer>();
+			WireFrame wireFrame=col.GetComponent<WireFrame>();
+			if(distance<=vision){
+				lineRenderer.enabled=true;
+				wireFrame.enabled=true;
 			}else{
-				foreach(LineRenderer lr in lineRenderer) lr.enabled=false;
-				foreach(WireFrameChild wfc in wireFrameChild) wfc.enabled=false;
-				wireFrameParent.enabled=false;
+				lineRenderer.enabled=false;
+				wireFrame.enabled=false;
 			}
 		}
 		
@@ -33,6 +30,10 @@ public class DetectNearObjects : MonoBehaviour {
 	
 	void OnDrawGizmosSelected () {
         Gizmos.color = Color.red;
-        Gizmos.DrawWireSphere (c_transform.position, radius);
+        Gizmos.DrawWireSphere (c_transform.position, vision);
     }
+	
+	public float GetVision(){
+		return vision;
+	}
 }
