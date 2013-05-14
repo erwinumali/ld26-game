@@ -14,13 +14,17 @@ public class DetectNearObjects : MonoBehaviour {
 	void Update () {
 		colliders=Physics.OverlapSphere(c_transform.position,vision*1.25f,mask);
 		foreach(Collider col in colliders){
-			float distance=Vector3.Distance(c_transform.position, col.transform.position);
+			float distance=Vector3.Distance(c_transform.position, col.ClosestPointOnBounds(c_transform.position));
 			LineRenderer lineRenderer=col.GetComponent<LineRenderer>();
 			WireFrame wireFrame=col.GetComponent<WireFrame>();
 			if(distance<=vision){
 				lineRenderer.enabled=true;
 				wireFrame.enabled=true;
+				wireFrame.SetWireFrame(distance);
 			}else{
+				if(lineRenderer.enabled && wireFrame.enabled){
+					wireFrame.SetWireFrame(0);
+				}
 				lineRenderer.enabled=false;
 				wireFrame.enabled=false;
 			}
@@ -35,5 +39,9 @@ public class DetectNearObjects : MonoBehaviour {
 	
 	public float GetVision(){
 		return vision;
+	}
+	
+	public float GetMaxDistance(){
+		return vision;	
 	}
 }

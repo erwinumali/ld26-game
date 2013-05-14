@@ -22,7 +22,7 @@ public class WireFrame : MonoBehaviour {
 		c_lineRenderer=GetComponent<LineRenderer>();
 		c_playerTransform=GameObject.FindGameObjectWithTag("Player").transform;
 		c_transform=transform;
-		maxDistance=GetComponent<DetectPlayer>().maxDistance;
+		maxDistance=c_playerTransform.GetComponent<DetectNearObjects>().GetMaxDistance();
 		c_lineRenderer.sharedMaterial.SetColor("_TintColor", color);
 		
 		Vector3[] corner;
@@ -130,17 +130,8 @@ public class WireFrame : MonoBehaviour {
 		tempVector3=Vector3.one;
 	}
 	
-	void Update () {
-		//distance=Vector3.Distance(c_transform.position,c_playerTransform.position);
-		//tempVector3.x=((maxDistance-distance)/maxDistance)*thickness;
-		//c_lineRenderer.SetWidth(tempVector3.x, tempVector3.x);
-		//tempVector3.x=roughness*Random.value*10;
-		//if(boolean) c_lineRenderer.sharedMaterial.mainTextureScale = tempVector3;
-	}
-	
-	public void SetDistance(float dist){
+	public void SetWireFrame(float dist){
 		tempVector3.x=((maxDistance-dist)/maxDistance)*thickness;
-//		print (tempVector3.x);
 		c_lineRenderer.SetWidth(tempVector3.x, tempVector3.x);
 		tempVector3.x=roughness*Random.value*10;
 		c_lineRenderer.sharedMaterial.mainTextureScale = tempVector3;

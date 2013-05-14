@@ -23,9 +23,9 @@ public class DetectPlayer : MonoBehaviour {
 		if(distance<=maxDistance){
 			c_lineRenderer.enabled=true;
 			c_wireFrame.enabled=true;
-			if(c_wireFrame.enabled && c_lineRenderer.enabled) c_wireFrame.SetDistance(distance);
+			//if(c_wireFrame.enabled && c_lineRenderer.enabled) c_wireFrame.SetDistance(distance);
 		}else{
-			if(c_wireFrame.enabled && c_lineRenderer.enabled) c_wireFrame.SetDistance(0);
+			//if(c_wireFrame.enabled && c_lineRenderer.enabled) c_wireFrame.SetDistance(0);
 			c_wireFrame.enabled=false;
 			c_lineRenderer.enabled=false;
 		}
