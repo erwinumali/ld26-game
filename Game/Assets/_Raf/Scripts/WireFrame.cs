@@ -8,23 +8,21 @@ public enum Type{
 public class WireFrame : MonoBehaviour {
 	public float roughness = 0;
 	public float thickness = 0;
-	private float maxDistance = 0;
-	private float distance=0;
-	private LineRenderer c_lineRenderer;
-	private Transform c_playerTransform;
-	private Transform c_transform;
 	public Color color;
-	private Vector3 tempVector3;
 	public Type type;
-	public bool boolean=false;
+	private bool hasParent=false;
+	
+	private LineRenderer c_lineRenderer;
+	private Transform c_transform;
+	private float r;
+	private float maxDistance = 0;
+	private Vector3 tempVector3;
 	
 	void Start () {
 		c_lineRenderer=GetComponent<LineRenderer>();
-		c_playerTransform=GameObject.FindGameObjectWithTag("Player").transform;
+		maxDistance=GameObject.FindGameObjectWithTag("Player").GetComponent<DetectNearObjects>().GetMaxVision();
 		c_transform=transform;
-		maxDistance=c_playerTransform.GetComponent<DetectNearObjects>().GetMaxDistance();
 		c_lineRenderer.sharedMaterial.SetColor("_TintColor", color);
-		
 		Vector3[] corner;
 		if(type==Type.Cube){
 			corner=new Vector3[35];
@@ -128,12 +126,19 @@ public class WireFrame : MonoBehaviour {
 			for(int i=0 ; i<corner.Length ; i++) c_lineRenderer.SetPosition(i, corner[i]);	
 		}
 		tempVector3=Vector3.one;
+		r=roughness*Vector3.Magnitude( c_transform.localScale);
 	}
 	
-	public void SetWireFrame(float dist){
-		tempVector3.x=((maxDistance-dist)/maxDistance)*thickness;
-		c_lineRenderer.SetWidth(tempVector3.x, tempVector3.x);
-		tempVector3.x=roughness*Random.value*10;
-		c_lineRenderer.sharedMaterial.mainTextureScale = tempVector3;
+	public void SetWireFrame(float distance){
+		if(c_lineRenderer){
+			tempVector3.x=((maxDistance-distance)/maxDistance)*thickness;
+			c_lineRenderer.SetWidth(tempVector3.x, tempVector3.x);
+			tempVector3.x=r*Random.value*3;
+			c_lineRenderer.sharedMaterial.mainTextureScale = tempVector3;
+		}
+	}
+	
+	public void SetHasParent(bool boolean){
+		hasParent=boolean;	
 	}
 }

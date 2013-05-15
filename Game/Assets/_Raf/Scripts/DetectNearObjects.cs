@@ -2,46 +2,38 @@ using UnityEngine;
 using System.Collections;
 
 public class DetectNearObjects : MonoBehaviour {
+	public float vision;
 	private Transform c_transform;
-	private Collider[] colliders;
-	public float vision=0;
+	private float distance=0;
 	private int mask;
+
 	void Start () {
 		c_transform=transform;
 		mask=1<<9;
 	}
 	
 	void Update () {
-		colliders=Physics.OverlapSphere(c_transform.position,vision*1.25f,mask);
+		Collider[] colliders = Physics.OverlapSphere(transform.position,vision*1.25f,mask);
 		foreach(Collider col in colliders){
-			float distance=Vector3.Distance(c_transform.position, col.ClosestPointOnBounds(c_transform.position));
+			distance=Vector3.Distance(c_transform.position, col.ClosestPointOnBounds(c_transform.position));
 			LineRenderer lineRenderer=col.GetComponent<LineRenderer>();
 			WireFrame wireFrame=col.GetComponent<WireFrame>();
 			if(distance<=vision){
-				lineRenderer.enabled=true;
 				wireFrame.enabled=true;
-				wireFrame.SetWireFrame(distance);
-			}else{
-				if(lineRenderer.enabled && wireFrame.enabled){
-					wireFrame.SetWireFrame(0);
+				lineRenderer.enabled=true;
+				if(wireFrame.enabled && lineRenderer.enabled){
+					wireFrame.SetWireFrame(distance);
 				}
-				lineRenderer.enabled=false;
+			}else{
+				if(wireFrame.enabled && lineRenderer.enabled) wireFrame.SetWireFrame(0);
 				wireFrame.enabled=false;
+				lineRenderer.enabled=false;
 			}
 		}
 		
 	}
 	
-	void OnDrawGizmosSelected () {
-        Gizmos.color = Color.red;
-        Gizmos.DrawWireSphere (c_transform.position, vision);
-    }
-	
-	public float GetVision(){
-		return vision;
-	}
-	
-	public float GetMaxDistance(){
+	public float GetMaxVision(){
 		return vision;	
 	}
 }

@@ -8,7 +8,7 @@
             <Node name="Assets" expanded="True">
               <Node name="_Raf" expanded="True">
                 <Node name="Scripts" expanded="True">
-                  <Node name="DetectPlayer.cs" selected="True" />
+                  <Node name="WireFrame.cs" selected="True" />
                 </Node>
               </Node>
             </Node>

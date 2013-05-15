@@ -2,34 +2,22 @@ using UnityEngine;
 using System.Collections;
 
 public class WireFrameParent : MonoBehaviour {
-	private WireFrameChild[] wireFrameChild;
-	private Transform c_playerTransform;
-	private Transform c_transform;
-	private float distance=0;
-	public float maxDistance=3;
-	public float roughness = 30f;
-	public float thickness = 0.04f;
-	
+	WireFrame[] wireFrame;
 	void Start () {
-		print ("Start");
-		wireFrameChild=GetComponentsInChildren<WireFrameChild>();
-		c_playerTransform=GameObject.FindGameObjectWithTag("Player").transform;
-		c_transform=transform;
-	}
-	
-	// Update is called once per frame
-	void Update () {
-		RaycastHit hit;
-		distance=Vector3.Distance(transform.position,c_playerTransform.position);
-		if(distance<=maxDistance){
-			for(int i=0 ; i<wireFrameChild.Length ; i++){
-				wireFrameChild[i].SetTextureScale(roughness*Random.value*10);
-				wireFrameChild[i].SetThickness(thickness*((maxDistance-distance)/maxDistance));
-			}
+		wireFrame=GetComponentsInChildren<WireFrame>();
+		foreach(WireFrame wf in wireFrame){
+			wf.SetHasParent(true);
 		}
 	}
 	
-	public float GetMaxDistance(){
-		return maxDistance;	
-	}
+	/*
+	public void SetWireFrame(float distance){
+		if(c_lineRenderer){
+			tempVector3.x=((maxDistance-distance)/maxDistance)*thickness;
+			c_lineRenderer.SetWidth(tempVector3.x, tempVector3.x);
+			tempVector3.x=r*Random.value*3;
+			c_lineRenderer.sharedMaterial.mainTextureScale = tempVector3;
+		}
+	}*/
+	
 }
