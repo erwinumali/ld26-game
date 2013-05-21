@@ -506,7 +506,6 @@ public class WireFrame : MonoBehaviour {
 			tempVector3.x=((maxDistance-distance)/maxDistance)*thickness;
 			c_lineRenderer.SetWidth(tempVector3.x, tempVector3.x);
 			tempVector3.x=roughness*Random.value*3;
-			Debug.Log(tempVector3);
 			c_lineRenderer.sharedMaterial.mainTextureScale = tempVector3;
 		}
 	}
